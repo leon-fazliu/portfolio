@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"] ?? "";
 
     if ($email === "" || $password === "") {
-        $error = "Ploteso email dhe fjalekalimin.";
+        $error = "Fill in the email and password.";
     } else {
         $stmt = $pdo->prepare("SELECT id, name, password FROM users WHERE email = ?");
         $stmt->execute([$email]);
@@ -26,12 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
 
-        $error = "Email ose fjalekalim i pasakte.";
+        $error = "Incorrect email or password.";
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,10 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
   <main class="auth-page">
     <section class="auth-card">
-      <a class="back-link" href="../../index.html">Kthehu te portfolio</a>
+      <a class="back-link" href="../../index.html">Back to portfolio</a>
       <p class="eyebrow">PHP + MySQL Project</p>
       <h1>Login</h1>
-      <p class="lead">Ky projekt perdor PHP sessions, password hashing dhe databaze MySQL.</p>
+      <p class="lead">This project uses PHP sessions, password hashing and a MySQL database.</p>
 
       <?php if ($error): ?>
         <p class="message error"><?php echo htmlspecialchars($error); ?></p>
@@ -57,13 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="email@example.com" required>
 
-        <label for="password">Fjalekalimi</label>
-        <input id="password" name="password" type="password" placeholder="Shkruaj fjalekalimin" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter your password" required>
 
-        <button type="submit">Kycu</button>
+        <button type="submit">Login</button>
       </form>
 
-      <p class="auth-footer">Nuk ke llogari? <a href="register.php">Regjistrohu</a></p>
+      <p class="auth-footer">Do not have an account? <a href="register.php">Register</a></p>
     </section>
   </main>
 </body>

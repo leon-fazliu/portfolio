@@ -11,7 +11,7 @@ $stmt->execute([$_SESSION["user_id"]]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,14 +27,14 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
       <div class="dashboard-top">
         <div>
           <p class="eyebrow">Dashboard</p>
-          <h1>Mire se erdhe, <?php echo htmlspecialchars($user["name"] ?? "User"); ?></h1>
+          <h1>Welcome, <?php echo htmlspecialchars($user["name"] ?? "User"); ?></h1>
         </div>
-        <a class="logout" href="logout.php">Dil</a>
+        <a class="logout" href="logout.php">Logout</a>
       </div>
 
       <div class="stats-grid">
         <article>
-          <span>Projekti</span>
+          <span>Project</span>
           <strong>Login System</strong>
         </article>
         <article>
@@ -48,10 +48,10 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
       </div>
 
       <div class="profile-box">
-        <h2>Te dhenat e perdoruesit</h2>
-        <p><strong>Emri:</strong> <?php echo htmlspecialchars($user["name"] ?? ""); ?></p>
+        <h2>User details</h2>
+        <p><strong>Name:</strong> <?php echo htmlspecialchars($user["name"] ?? ""); ?></p>
         <p><strong>Email:</strong> <?php echo htmlspecialchars($user["email"] ?? ""); ?></p>
-        <p><strong>Regjistruar me:</strong> <?php echo htmlspecialchars($user["created_at"] ?? ""); ?></p>
+        <p><strong>Registered at:</strong> <?php echo htmlspecialchars($user["created_at"] ?? ""); ?></p>
       </div>
     </section>
   </main>

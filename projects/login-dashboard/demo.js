@@ -35,11 +35,11 @@ function toggleMode() {
   registerOnly.classList.toggle("hidden", !isRegisterMode);
   formTitle.textContent = isRegisterMode ? "Register" : "Login";
   formLead.textContent = isRegisterMode
-    ? "Krijo nje llogari demo dhe pastaj kycu ne dashboard."
-    : "Demo vizuale qe hapet direkt ne browser. Versioni PHP/MySQL eshte ne te njejtin folder.";
-  submitButton.textContent = isRegisterMode ? "Regjistrohu" : "Kycu";
-  switchText.textContent = isRegisterMode ? "Ke llogari?" : "Nuk ke llogari?";
-  switchMode.textContent = isRegisterMode ? "Kycu" : "Regjistrohu";
+    ? "Create a demo account and then log in to the dashboard."
+    : "A visual demo that opens directly in the browser. The PHP/MySQL version is in the same folder.";
+  submitButton.textContent = isRegisterMode ? "Register" : "Login";
+  switchText.textContent = isRegisterMode ? "Already have an account?" : "Do not have an account?";
+  switchMode.textContent = isRegisterMode ? "Login" : "Register";
   errorMessage.classList.add("hidden");
   successMessage.classList.add("hidden");
 }
@@ -62,12 +62,12 @@ authForm.addEventListener("submit", (event) => {
 
   if (isRegisterMode) {
     if (!name || !email || password.length < 6) {
-      showMessage("error", "Ploteso emrin, email dhe fjalekalim me te pakten 6 karaktere.");
+      showMessage("error", "Fill in the name, email and a password with at least 6 characters.");
       return;
     }
 
     demoUser = { name, email, password };
-    showMessage("success", "Llogaria demo u krijua. Tani mund te kycesh.");
+    showMessage("success", "The demo account was created. You can now log in.");
     toggleMode();
     authForm.reset();
     return;
@@ -78,7 +78,7 @@ authForm.addEventListener("submit", (event) => {
     return;
   }
 
-  showMessage("error", "Per demo perdor email@example.com dhe fjalekalim 123456, ose krijo llogari.");
+  showMessage("error", "For the demo use email@example.com and password 123456, or create an account.");
 });
 
 switchMode.addEventListener("click", toggleMode);

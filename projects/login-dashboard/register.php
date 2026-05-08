@@ -15,28 +15,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"] ?? "";
 
     if ($name === "" || $email === "" || $password === "") {
-        $error = "Ploteso te gjitha fushat.";
+        $error = "Fill in all fields.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Email nuk eshte valid.";
+        $error = "Email is not valid.";
     } elseif (strlen($password) < 6) {
-        $error = "Fjalekalimi duhet te kete te pakten 6 karaktere.";
+        $error = "Password must have at least 6 characters.";
     } else {
         $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$email]);
 
         if ($stmt->fetch()) {
-            $error = "Ky email eshte regjistruar me pare.";
+            $error = "This email is already registered.";
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $insert = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
             $insert->execute([$name, $email, $hashedPassword]);
-            $success = "Llogaria u krijua me sukses. Tani mund te kycesh.";
+            $success = "The account was created successfully. You can now log in.";
         }
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
   <main class="auth-page">
     <section class="auth-card">
-      <a class="back-link" href="../../index.html">Kthehu te portfolio</a>
+      <a class="back-link" href="../../index.html">Back to portfolio</a>
       <p class="eyebrow">PHP + MySQL Project</p>
       <h1>Register</h1>
-      <p class="lead">Krijo llogari dhe ruaj perdoruesin ne databaze MySQL.</p>
+      <p class="lead">Create an account and save the user in a MySQL database.</p>
 
       <?php if ($error): ?>
         <p class="message error"><?php echo htmlspecialchars($error); ?></p>
@@ -63,19 +63,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <?php endif; ?>
 
       <form method="POST" action="">
-        <label for="name">Emri</label>
+        <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Leon Fazliu" required>
 
         <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="email@example.com" required>
 
-        <label for="password">Fjalekalimi</label>
-        <input id="password" name="password" type="password" placeholder="Minimum 6 karaktere" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Minimum 6 characters" required>
 
-        <button type="submit">Regjistrohu</button>
+        <button type="submit">Register</button>
       </form>
 
-      <p class="auth-footer">Ke llogari? <a href="index.php">Kycu</a></p>
+      <p class="auth-footer">Already have an account? <a href="index.php">Login</a></p>
     </section>
   </main>
 </body>

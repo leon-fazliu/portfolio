@@ -20,7 +20,7 @@ if (navToggle && nav) {
 if (contactForm && formMessage) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    formMessage.textContent = "Mesazhi u dergua me sukses.";
+    formMessage.textContent = "Message sent successfully.";
     contactForm.reset();
   });
 }

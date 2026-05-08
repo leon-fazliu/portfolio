@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,32 +12,32 @@
 <body>
   <main class="auth-page">
     <section class="auth-card" id="authCard">
-      <a class="back-link" href="../../index.html">Kthehu te portfolio</a>
+      <a class="back-link" href="../../index.html">Back to portfolio</a>
       <p class="eyebrow">Frontend Demo</p>
       <h1 id="formTitle">Login</h1>
-      <p class="lead" id="formLead">Demo vizuale qe hapet direkt ne browser. Versioni PHP/MySQL eshte ne te njejtin folder.</p>
+      <p class="lead" id="formLead">A visual demo that opens directly in the browser. The PHP/MySQL version is in the same folder.</p>
 
       <p class="message error hidden" id="errorMessage"></p>
       <p class="message success hidden" id="successMessage"></p>
 
       <form id="authForm">
         <div class="register-only hidden">
-          <label for="name">Emri</label>
+          <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Leon Fazliu">
         </div>
 
         <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="email@example.com" required>
 
-        <label for="password">Fjalekalimi</label>
-        <input id="password" name="password" type="password" placeholder="Minimum 6 karaktere" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Minimum 6 characters" required>
 
-        <button type="submit" id="submitButton">Kycu</button>
+        <button type="submit" id="submitButton">Login</button>
       </form>
 
       <p class="auth-footer">
-        <span id="switchText">Nuk ke llogari?</span>
-        <button class="text-button" type="button" id="switchMode">Regjistrohu</button>
+        <span id="switchText">Do not have an account?</span>
+        <button class="text-button" type="button" id="switchMode">Register</button>
       </p>
     </section>
 
@@ -45,14 +45,14 @@
       <div class="dashboard-top">
         <div>
           <p class="eyebrow">Dashboard Demo</p>
-          <h1>Mire se erdhe, <span id="userName">Leon</span></h1>
+          <h1>Welcome, <span id="userName">Leon</span></h1>
         </div>
-        <button class="logout" type="button" id="logoutButton">Dil</button>
+        <button class="logout" type="button" id="logoutButton">Logout</button>
       </div>
 
       <div class="stats-grid">
         <article>
-          <span>Projekti</span>
+          <span>Project</span>
           <strong>Login System</strong>
         </article>
         <article>
@@ -66,10 +66,10 @@
       </div>
 
       <div class="profile-box">
-        <h2>Te dhenat e perdoruesit</h2>
-        <p><strong>Emri:</strong> <span id="profileName">Leon Fazliu</span></p>
+        <h2>User details</h2>
+        <p><strong>Name:</strong> <span id="profileName">Leon Fazliu</span></p>
         <p><strong>Email:</strong> <span id="profileEmail">email@example.com</span></p>
-        <p><strong>Status:</strong> Demo e kycur me JavaScript</p>
+        <p><strong>Status:</strong> Logged in with JavaScript demo</p>
       </div>
     </section>
   </main>

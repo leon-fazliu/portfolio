@@ -7,9 +7,9 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const clearCompleted = document.querySelector("#clearCompleted");
 
 let tasks = [
-  { id: 1, text: "Perfundo faqen e portfolios", completed: true },
-  { id: 2, text: "Shto projektin Task Manager", completed: false },
-  { id: 3, text: "Publiko linkun ne LinkedIn", completed: false }
+  { id: 1, text: "Finish the portfolio website", completed: true },
+  { id: 2, text: "Add the Task Manager project", completed: false },
+  { id: 3, text: "Publish the link on LinkedIn", completed: false }
 ];
 
 let currentFilter = "all";
@@ -28,7 +28,7 @@ function getFilteredTasks() {
 
 function updateCount() {
   const activeTasks = tasks.filter((task) => !task.completed).length;
-  taskCount.textContent = activeTasks === 1 ? "1 detyre aktive" : `${activeTasks} detyra aktive`;
+  taskCount.textContent = activeTasks === 1 ? "1 active task" : `${activeTasks} active tasks`;
 }
 
 function renderTasks() {
@@ -38,7 +38,7 @@ function renderTasks() {
   if (visibleTasks.length === 0) {
     const empty = document.createElement("li");
     empty.className = "empty-state";
-    empty.textContent = "Nuk ka detyra per kete filter.";
+    empty.textContent = "There are no tasks for this filter.";
     taskList.appendChild(empty);
     updateCount();
     return;
@@ -51,8 +51,8 @@ function renderTasks() {
     const checkButton = document.createElement("button");
     checkButton.className = "check-btn";
     checkButton.type = "button";
-    checkButton.textContent = task.completed ? "✓" : "";
-    checkButton.setAttribute("aria-label", "Ndrysho statusin e detyres");
+    checkButton.textContent = task.completed ? "OK" : "";
+    checkButton.setAttribute("aria-label", "Change task status");
     checkButton.addEventListener("click", () => toggleTask(task.id));
 
     const text = document.createElement("span");
@@ -63,7 +63,7 @@ function renderTasks() {
     deleteButton.className = "delete-btn";
     deleteButton.type = "button";
     deleteButton.textContent = "X";
-    deleteButton.setAttribute("aria-label", "Fshi detyren");
+    deleteButton.setAttribute("aria-label", "Delete task");
     deleteButton.addEventListener("click", () => deleteTask(task.id));
 
     item.append(checkButton, text, deleteButton);
@@ -99,7 +99,7 @@ taskForm.addEventListener("submit", (event) => {
   const value = taskInput.value.trim();
 
   if (!value) {
-    errorMessage.textContent = "Shkruaj nje detyre para se ta shtosh.";
+    errorMessage.textContent = "Write a task before adding it.";
     taskInput.focus();
     return;
   }
