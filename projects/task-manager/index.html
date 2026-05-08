@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager | Leon Fazliu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="app-panel">
+      <a class="back-link" href="../../index.html">Kthehu te portfolio</a>
+
+      <header class="app-header">
+        <p class="eyebrow">JavaScript Project</p>
+        <h1>Task Manager</h1>
+        <p>Menaxho detyrat ditore me shtim, fshirje, filtrim dhe status te perfunduar.</p>
+      </header>
+
+      <form class="task-form" id="taskForm">
+        <label for="taskInput">Detyra e re</label>
+        <div class="form-row">
+          <input id="taskInput" type="text" placeholder="Shkruaj nje detyre..." autocomplete="off">
+          <button type="submit">Shto</button>
+        </div>
+        <p class="error-message" id="errorMessage" aria-live="polite"></p>
+      </form>
+
+      <div class="toolbar" aria-label="Filtrat e detyrave">
+        <button class="filter-btn is-active" type="button" data-filter="all">Te gjitha</button>
+        <button class="filter-btn" type="button" data-filter="active">Aktive</button>
+        <button class="filter-btn" type="button" data-filter="completed">Te perfunduara</button>
+      </div>
+
+      <ul class="task-list" id="taskList"></ul>
+
+      <footer class="summary">
+        <span id="taskCount">0 detyra</span>
+        <button class="clear-btn" type="button" id="clearCompleted">Fshi te perfunduarat</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

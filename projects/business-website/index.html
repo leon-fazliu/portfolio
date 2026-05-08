@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Brew | Business Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">Urban Brew</a>
+    <button class="nav-toggle" type="button" aria-label="Hap menune" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" aria-label="Navigimi kryesor">
+      <a href="#about">Rreth nesh</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <a class="back-link" href="../../index.html">Kthehu te portfolio</a>
+        <p class="eyebrow">Coffee Shop</p>
+        <h1>Urban Brew</h1>
+        <p>
+          Kafene moderne per kafe specialiteti, mengjes te shpejte dhe ambient pune te qete ne qender te qytetit.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#menu">Shiko menune</a>
+          <a class="button secondary" href="#contact">Rezervo tavoline</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">Rreth nesh</p>
+        <h2>Kafe e mire, sherbim i shpejte, ambient i ngrohte.</h2>
+      </div>
+      <div class="about-grid">
+        <p>
+          Urban Brew eshte nje website demo per biznes lokal, i ndertuar per te treguar nje prezantim profesional online.
+          Faqja ka seksione te qarta, dizajn responsive dhe thirrje konkrete per kontakt.
+        </p>
+        <div class="hours-box">
+          <h3>Orari</h3>
+          <p>E Hene - E Premte: 08:00 - 22:00</p>
+          <p>E Shtune - E Diele: 09:00 - 23:00</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu">
+      <div class="section-heading">
+        <p class="eyebrow">Menu</p>
+        <h2>Zgjedhjet kryesore</h2>
+      </div>
+      <div class="menu-grid">
+        <article>
+          <span>01</span>
+          <h3>Espresso Special</h3>
+          <p>Kafe e forte me aromë te pasur.</p>
+          <strong>1.50 EUR</strong>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Latte Vanilla</h3>
+          <p>Latte e bute me shije vanilje.</p>
+          <strong>2.20 EUR</strong>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Fresh Croissant</h3>
+          <p>Croissant i fresket per mengjes.</p>
+          <strong>1.80 EUR</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Galeria</p>
+        <h2>Atmosfera e lokalit</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item item-one"></div>
+        <div class="gallery-item item-two"></div>
+        <div class="gallery-item item-three"></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Rezervo ose na shkruaj</h2>
+          <p>Rruga Kryesore 12, Prishtine</p>
+          <p>+383 44 000 000</p>
+        </div>
+        <form id="contactForm">
+          <input type="text" placeholder="Emri" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Mesazhi" rows="4" required></textarea>
+          <button type="submit">Dergo mesazh</button>
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Urban Brew. Demo website nga Leon Fazliu.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio profesionale per web developer junior me HTML, CSS, JavaScript, PHP, MySQL dhe jQuery.">
+  <title>Portfolio | Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Kreu">
+      <span class="brand-mark">WD</span>
+      <span class="brand-text">Web Developer</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Hap menune" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Navigimi kryesor">
+      <a href="#about">Rreth meje</a>
+      <a href="#skills">Aftesite</a>
+      <a href="#projects">Projektet</a>
+      <a href="#contact">Kontakti</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Junior Web Developer</p>
+        <h1>Pershendetje, jam <span>Leon Fazliu</span>.<br>Ndertoj faqe web moderne dhe funksionale.</h1>
+        <p class="hero-text">
+          Kam mesuar HTML, CSS, JavaScript, PHP, MySQL dhe bazat e jQuery. Synimi im eshte te krijoj
+          faqe te pastra, responsive dhe te lehta per t'u perdorur, duke kombinuar dizajnin me logjiken backend.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Shiko projektet</a>
+          <a class="button secondary" href="#contact">Me kontakto</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Permbledhje profesionale">
+        <div class="code-card">
+          <div class="window-dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <pre><code>const developer = {
+  focus: "Web Development",
+  frontend: ["HTML", "CSS", "JavaScript"],
+  backend: ["PHP", "MySQL"],
+  learning: "jQuery",
+  goal: "Build useful web apps"
+};</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">Profili</p>
+        <h2>Rreth meje</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            Jam nje web developer ne zhvillim, i fokusuar ne krijimin e faqeve web me strukture te qarte,
+            dizajn responsive dhe funksionalitet praktik. Me pelqen te punoj nga ideja fillestare deri te
+            nje zgjidhje e perdorshme, duke perdorur teknologji bazike por te rendesishme te web-it.
+          </p>
+          <p>
+            Aktualisht po forcoj njohurite ne JavaScript, PHP dhe MySQL, si edhe po ndertoj projekte praktike
+            per te treguar aftesite e mia ne frontend dhe backend.
+          </p>
+        </div>
+        <ul class="profile-list">
+          <li><strong>Roli:</strong> Junior Web Developer</li>
+          <li><strong>Fokusi:</strong> Website responsive dhe aplikacione bazike web</li>
+          <li><strong>Teknologjite:</strong> HTML, CSS, JavaScript, PHP, MySQL, jQuery</li>
+          <li><strong>Disponueshmeria:</strong> Praktike, pune junior ose projekte freelance</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">Stack</p>
+        <h2>Aftesite kryesore</h2>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <span class="skill-icon">HTML</span>
+          <h3>Strukture Web</h3>
+          <p>Faqe me markup semantik, seksione te qarta dhe permbajtje te organizuar mire.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-icon">CSS</span>
+          <h3>Dizajn Responsive</h3>
+          <p>Layout modern me Flexbox/Grid, ngjyra profesionale dhe pershtatje per mobile.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-icon">JS</span>
+          <h3>Interaktivitet</h3>
+          <p>Menu, forma, filtrime, validime dhe elemente dinamike me JavaScript.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-icon">PHP</span>
+          <h3>Backend Bazik</h3>
+          <p>Logjike server-side, forma kontakti dhe lidhje me databaze.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-icon">SQL</span>
+          <h3>MySQL</h3>
+          <p>Krijim tabelash, query bazike dhe ruajtje te dhenash per aplikacione web.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-icon">jQ</span>
+          <h3>jQuery</h3>
+          <p>Njohuri fillestare per manipulim DOM dhe efekte te thjeshta ne faqe.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Projekte qe mund te prezantosh</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-media ecommerce"></div>
+          <div class="project-body">
+            <h3>Website per Biznes Lokal</h3>
+            <p>Faqe prezantuese responsive me seksione per sherbime, galeri dhe kontakt.</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <a class="project-link" href="projects/business-website/index.html">Shiko projektin</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-media dashboard"></div>
+          <div class="project-body">
+            <h3>Sistem Login dhe Dashboard</h3>
+            <p>Panel i thjeshte me login, regjistrim perdoruesi dhe ruajtje te dhenash.</p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>MySQL</span>
+              <span>CSS</span>
+            </div>
+            <a class="project-link" href="projects/login-dashboard/demo.html">Shiko projektin</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-media todo"></div>
+          <div class="project-body">
+            <h3>Task Manager</h3>
+            <p>Aplikacion i vogel per shtim, fshirje dhe menaxhim detyrash me interaktivitet.</p>
+            <div class="tags">
+              <span>JavaScript</span>
+              <span>jQuery</span>
+              <span>HTML</span>
+            </div>
+            <a class="project-link" href="projects/task-manager/index.html">Shiko projektin</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section linkedin">
+      <div class="linkedin-copy">
+        <p class="eyebrow">LinkedIn</p>
+        <h2>Tekst profesional per profilin tend</h2>
+        <p>
+          Junior Web Developer me njohuri ne HTML, CSS, JavaScript, PHP dhe MySQL. Kam fokus ne krijimin e faqeve
+          responsive, te strukturuara mire dhe te lehta per perdoruesin. Jam duke zhvilluar projekte praktike per te
+          forcuar aftesite ne frontend dhe backend, si dhe jam i/e hapur per praktike, role junior ose bashkepunime ne
+          projekte web.
+        </p>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Le te punojme bashke</h2>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:email@example.com">leon.fazliu11@gmail.com</a>
+        <a href="https://www.linkedin.com/in/leon-fazliu-6796b4366" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Leon Fazliu. Te gjitha te drejtat e rezervuara.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
