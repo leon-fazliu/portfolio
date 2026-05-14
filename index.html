@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional portfolio for a junior web developer using HTML, CSS, JavaScript, PHP, MySQL and jQuery basics.">
-  <title>Portfolio | Web Developer</title>
+  <meta name="description" content="Portfolio of Leon Fazliu, a junior web developer building responsive websites and practical web applications with HTML, CSS, JavaScript, PHP and MySQL.">
+  <title>Leon Fazliu | Junior Web Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +27,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -35,15 +36,34 @@
     <section class="hero" id="home">
       <div class="hero-content">
         <p class="eyebrow">Junior Web Developer</p>
-        <h1>Hello, I am <span>Leon Fazliu</span>.<br>I build modern and functional websites.</h1>
+        <h1>Hello, I am <span>Leon Fazliu</span>.<br>I build clean websites that solve real needs.</h1>
         <p class="hero-text">
-          I have learned HTML, CSS, JavaScript, PHP, MySQL and the basics of jQuery. My goal is to build
-          clean, responsive and user-friendly websites by combining frontend design with backend logic.
+          I create responsive interfaces and practical web features with HTML, CSS, JavaScript, PHP and MySQL.
+          My focus is simple: clear structure, fast pages and user-friendly experiences that work on every screen.
         </p>
+        <div class="hero-badges" aria-label="Highlights">
+          <span>Responsive layouts</span>
+          <span>Frontend + backend basics</span>
+          <span>Open to junior roles</span>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href="#projects">View projects</a>
           <a class="button secondary" href="#contact">Contact me</a>
         </div>
+        <dl class="hero-stats" aria-label="Portfolio stats">
+          <div>
+            <dt>6</dt>
+            <dd>Core technologies</dd>
+          </div>
+          <div>
+            <dt>3</dt>
+            <dd>Featured projects</dd>
+          </div>
+          <div>
+            <dt>100%</dt>
+            <dd>Responsive focus</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="hero-panel" aria-label="Professional summary">
@@ -60,11 +80,15 @@
   learning: "jQuery",
   goal: "Build useful web apps"
 };</code></pre>
+          <div class="code-footer">
+            <span>Status</span>
+            <strong>Available for internships and junior work</strong>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section about" id="about">
+    <section class="section about reveal" id="about">
       <div class="section-heading">
         <p class="eyebrow">Profile</p>
         <h2>About me</h2>
@@ -80,6 +104,11 @@
             I am currently improving my skills in JavaScript, PHP and MySQL while building practical
             projects that demonstrate both frontend and backend knowledge.
           </p>
+          <div class="about-highlights">
+            <span>Clean HTML structure</span>
+            <span>Mobile-first CSS</span>
+            <span>Practical JavaScript</span>
+          </div>
         </div>
         <ul class="profile-list">
           <li><strong>Role:</strong> Junior Web Developer</li>
@@ -90,7 +119,7 @@
       </div>
     </section>
 
-    <section class="section skills" id="skills">
+    <section class="section skills reveal" id="skills">
       <div class="section-heading">
         <p class="eyebrow">Stack</p>
         <h2>Core skills</h2>
@@ -129,55 +158,107 @@
       </div>
     </section>
 
-    <section class="section projects" id="projects">
+    <section class="section projects reveal" id="projects">
       <div class="section-heading">
         <p class="eyebrow">Portfolio</p>
-        <h2>Featured projects</h2>
+        <h2>Projects built with real website logic</h2>
+        <p>Each project focuses on a practical use case: business presentation, authentication flow or daily productivity.</p>
       </div>
       <div class="projects-grid">
-        <article class="project-card">
+        <article class="project-card project-featured">
           <div class="project-media ecommerce"></div>
           <div class="project-body">
+            <p class="project-type">Business website</p>
             <h3>Local Business Website</h3>
-            <p>A responsive presentation website with services, gallery and contact sections.</p>
+            <p>A polished coffee shop website designed to help a local business present services, menu items, gallery content and direct contact options.</p>
+            <ul class="project-points">
+              <li>Sticky responsive navigation and mobile menu</li>
+              <li>Service, menu, gallery and contact sections</li>
+              <li>Contact form feedback with JavaScript</li>
+            </ul>
             <div class="tags">
               <span>HTML</span>
               <span>CSS</span>
               <span>JavaScript</span>
             </div>
-            <a class="project-link" href="projects/business-website/index.html">View project</a>
+            <div class="project-actions">
+              <a class="project-link" href="projects/business-website/index.html">Open demo</a>
+              <span>Responsive landing page</span>
+            </div>
           </div>
         </article>
         <article class="project-card">
           <div class="project-media dashboard"></div>
           <div class="project-body">
+            <p class="project-type">Full-stack concept</p>
             <h3>Login and Dashboard System</h3>
-            <p>A simple panel with login, user registration and data storage.</p>
+            <p>An authentication project with a browser demo plus PHP/MySQL files for the backend version.</p>
+            <ul class="project-points">
+              <li>Login and register interface</li>
+              <li>Dashboard state after successful login</li>
+              <li>Database schema and PHP structure included</li>
+            </ul>
             <div class="tags">
               <span>PHP</span>
               <span>MySQL</span>
               <span>CSS</span>
             </div>
-            <a class="project-link" href="projects/login-dashboard/demo.html">View project</a>
+            <div class="project-actions">
+              <a class="project-link" href="projects/login-dashboard/demo.html">Open demo</a>
+              <span>Auth + dashboard flow</span>
+            </div>
           </div>
         </article>
         <article class="project-card">
           <div class="project-media todo"></div>
           <div class="project-body">
+            <p class="project-type">JavaScript app</p>
             <h3>Task Manager</h3>
-            <p>A small interactive application for adding, deleting and managing tasks.</p>
+            <p>A focused productivity app for managing tasks with validation, filters, status changes and cleanup actions.</p>
+            <ul class="project-points">
+              <li>Add, complete and delete tasks</li>
+              <li>Filter by all, active or completed</li>
+              <li>Task counter and clear completed action</li>
+            </ul>
             <div class="tags">
               <span>JavaScript</span>
               <span>jQuery</span>
               <span>HTML</span>
             </div>
-            <a class="project-link" href="projects/task-manager/index.html">View project</a>
+            <div class="project-actions">
+              <a class="project-link" href="projects/task-manager/index.html">Open demo</a>
+              <span>Interactive UI logic</span>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section linkedin">
+    <section class="section services reveal" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Value</p>
+        <h2>What I can help with</h2>
+      </div>
+      <div class="services-grid">
+        <article>
+          <span>01</span>
+          <h3>Portfolio and business pages</h3>
+          <p>Modern, responsive pages with strong structure, clear sections and contact paths.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Interactive frontend features</h3>
+          <p>Navigation menus, filters, forms, validation and small JavaScript tools.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Basic PHP and MySQL apps</h3>
+          <p>Simple dashboards, authentication flows and database-backed web features.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section linkedin reveal">
       <div class="linkedin-copy">
         <p class="eyebrow">LinkedIn</p>
         <h2>Professional LinkedIn summary</h2>
@@ -189,13 +270,14 @@
       </div>
     </section>
 
-    <section class="section contact" id="contact">
+    <section class="section contact reveal" id="contact">
       <div class="section-heading">
         <p class="eyebrow">Contact</p>
         <h2>Let's work together</h2>
+        <p>Have a small website, internship opportunity or junior web role in mind? I would be happy to talk.</p>
       </div>
       <div class="contact-grid">
-        <a href="mailto:email@example.com">leon.fazliu11@gmail.com</a>
+        <a href="mailto:leon.fazliu11@gmail.com">leon.fazliu11@gmail.com</a>
         <a href="https://www.linkedin.com/in/leon-fazliu-6796b4366" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="https://github.com/leon-fazliu" target="_blank" rel="noreferrer">GitHub</a>
       </div>
