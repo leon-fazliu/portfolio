@@ -733,7 +733,7 @@ pre {
 }
 
 .services-grid span {
-  color: var(--accent);
+  color: var(--primary-dark);
   font-size: 0.8rem;
   font-weight: 800;
 }
