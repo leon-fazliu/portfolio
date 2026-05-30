@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Demo | Leon Fazliu</title>
+  <title>ClientFlow Portal | Leon Fazliu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,9 +13,9 @@
   <main class="auth-page">
     <section class="auth-card" id="authCard">
       <a class="back-link" href="../../index.html">Back to portfolio</a>
-      <p class="eyebrow">Frontend Demo</p>
-      <h1 id="formTitle">Login</h1>
-      <p class="lead" id="formLead">A visual demo that opens directly in the browser. The PHP/MySQL version is in the same folder.</p>
+      <p class="eyebrow">Client Portal</p>
+      <h1 id="formTitle">Sign in to ClientFlow</h1>
+      <p class="lead" id="formLead">A polished authentication and client dashboard prototype. The PHP/MySQL backend version is included in this project folder.</p>
 
       <p class="message error hidden" id="errorMessage"></p>
       <p class="message success hidden" id="successMessage"></p>
@@ -23,11 +23,11 @@
       <form id="authForm">
         <div class="register-only hidden">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Leon Fazliu">
+          <input id="name" name="name" type="text" placeholder="Alex Morgan">
         </div>
 
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="email@example.com" required>
+        <input id="email" name="email" type="email" placeholder="client@example.com" required>
 
         <label for="password">Password</label>
         <input id="password" name="password" type="password" placeholder="Minimum 6 characters" required>
@@ -35,8 +35,13 @@
         <button type="submit" id="submitButton">Login</button>
       </form>
 
+      <div class="demo-access">
+        <span>Demo access</span>
+        <strong>client@example.com / 123456</strong>
+      </div>
+
       <p class="auth-footer">
-        <span id="switchText">Do not have an account?</span>
+        <span id="switchText">Need a new client account?</span>
         <button class="text-button" type="button" id="switchMode">Register</button>
       </p>
     </section>
@@ -44,32 +49,44 @@
     <section class="dashboard-panel hidden" id="dashboardPanel">
       <div class="dashboard-top">
         <div>
-          <p class="eyebrow">Dashboard Demo</p>
-          <h1>Welcome, <span id="userName">Leon</span></h1>
+          <p class="eyebrow">ClientFlow Dashboard</p>
+          <h1>Welcome back, <span id="userName">Leon</span></h1>
         </div>
         <button class="logout" type="button" id="logoutButton">Logout</button>
       </div>
 
       <div class="stats-grid">
         <article>
-          <span>Project</span>
-          <strong>Login System</strong>
+          <span>Active projects</span>
+          <strong>8</strong>
         </article>
         <article>
-          <span>Frontend</span>
-          <strong>HTML/CSS/JS</strong>
+          <span>Open tickets</span>
+          <strong>14</strong>
         </article>
         <article>
-          <span>Backend version</span>
-          <strong>PHP/MySQL</strong>
+          <span>Account status</span>
+          <strong>Verified</strong>
         </article>
       </div>
 
-      <div class="profile-box">
-        <h2>User details</h2>
-        <p><strong>Name:</strong> <span id="profileName">Leon Fazliu</span></p>
-        <p><strong>Email:</strong> <span id="profileEmail">email@example.com</span></p>
-        <p><strong>Status:</strong> Logged in with JavaScript demo</p>
+      <div class="dashboard-grid">
+        <div class="profile-box">
+          <h2>Account details</h2>
+          <p><strong>Name:</strong> <span id="profileName">Alex Morgan</span></p>
+          <p><strong>Email:</strong> <span id="profileEmail">client@example.com</span></p>
+          <p><strong>Role:</strong> Client account</p>
+          <p><strong>Backend:</strong> PHP/MySQL version included</p>
+        </div>
+
+        <div class="activity-box">
+          <h2>Recent activity</h2>
+          <ul>
+            <li><span></span>Project proposal was reviewed</li>
+            <li><span></span>Support ticket marked as in progress</li>
+            <li><span></span>Profile security check completed</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>

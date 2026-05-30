@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediBook Clinic | Appointment System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span>MB</span>
+      <strong>MediBook Clinic</strong>
+    </a>
+    <nav aria-label="Project navigation">
+      <a href="#services">Services</a>
+      <a href="#booking">Booking</a>
+      <a href="#appointments">Appointments</a>
+      <a href="../../index.html">Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <a class="back-link" href="../../index.html">Back to portfolio</a>
+        <p class="eyebrow">Healthcare Booking System</p>
+        <h1>Appointment scheduling for a modern clinic.</h1>
+        <p class="hero-text">
+          A professional booking interface where patients can choose a service, select a doctor,
+          request an appointment and review scheduled visits in an admin-style panel.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#booking">Book appointment</a>
+          <a class="button secondary" href="#appointments">View schedule</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Clinic availability">
+        <p class="eyebrow">Today</p>
+        <h2>12 open slots</h2>
+        <div class="availability-list">
+          <span>09:30 General Checkup</span>
+          <span>11:00 Dental Consultation</span>
+          <span>14:30 Dermatology</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>Clinic departments</h2>
+      </div>
+      <div class="services-grid">
+        <article>
+          <span>01</span>
+          <h3>General Checkup</h3>
+          <p>Routine consultation, symptoms review and basic medical guidance.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Dental Consultation</h3>
+          <p>Initial dental evaluation, cleaning plan and treatment recommendations.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Dermatology</h3>
+          <p>Skin condition assessment, follow-up plans and care instructions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="booking">
+      <div class="booking-copy">
+        <p class="eyebrow">Booking</p>
+        <h2>Schedule a patient visit</h2>
+        <p>
+          The form validates patient details, creates a new appointment and stores the schedule locally
+          so the interface behaves like a real booking workflow.
+        </p>
+        <div class="feature-list">
+          <span>Form validation</span>
+          <span>Status filtering</span>
+          <span>Local storage</span>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <label for="patientName">Patient name</label>
+        <input id="patientName" type="text" placeholder="Emma Carter" autocomplete="off">
+
+        <label for="patientEmail">Email</label>
+        <input id="patientEmail" type="email" placeholder="patient@example.com">
+
+        <div class="form-grid">
+          <div>
+            <label for="serviceSelect">Service</label>
+            <select id="serviceSelect">
+              <option>General Checkup</option>
+              <option>Dental Consultation</option>
+              <option>Dermatology</option>
+            </select>
+          </div>
+          <div>
+            <label for="doctorSelect">Doctor</label>
+            <select id="doctorSelect">
+              <option>Dr. Sarah Bennett</option>
+              <option>Dr. Michael Adams</option>
+              <option>Dr. Olivia Reed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label for="dateInput">Date</label>
+            <input id="dateInput" type="date">
+          </div>
+          <div>
+            <label for="timeInput">Time</label>
+            <input id="timeInput" type="time">
+          </div>
+        </div>
+
+        <button type="submit">Add appointment</button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="section appointments-section" id="appointments">
+      <div class="section-heading">
+        <p class="eyebrow">Schedule</p>
+        <h2>Appointment dashboard</h2>
+      </div>
+      <div class="dashboard-summary">
+        <article>
+          <span>Total</span>
+          <strong id="totalAppointments">0</strong>
+        </article>
+        <article>
+          <span>Confirmed</span>
+          <strong id="confirmedAppointments">0</strong>
+        </article>
+        <article>
+          <span>Pending</span>
+          <strong id="pendingAppointments">0</strong>
+        </article>
+      </div>
+
+      <div class="schedule-panel">
+        <div class="schedule-toolbar">
+          <div>
+            <p class="eyebrow">Admin view</p>
+            <h3>Patient appointments</h3>
+          </div>
+          <div class="filters" aria-label="Appointment filters">
+            <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="Confirmed">Confirmed</button>
+            <button class="filter-btn" type="button" data-filter="Pending">Pending</button>
+          </div>
+        </div>
+        <div class="appointments-list" id="appointmentsList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

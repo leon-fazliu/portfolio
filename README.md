@@ -1,8 +1,8 @@
 # Portfolio - Leon Fazliu
 
-Portfolio personale per Junior Web Developer.
+Personal portfolio for a Web Developer.
 
-## Teknologjite
+## Technologies
 
 - HTML
 - CSS
@@ -11,8 +11,9 @@ Portfolio personale per Junior Web Developer.
 - MySQL
 - jQuery basics
 
-## Projektet
+## Projects
 
-- Website per Biznes Lokal
-- Login dhe Dashboard
-- Task Manager
+- Local Business Website
+- ClientFlow Portal
+- CommerceOps Dashboard
+- MediBook Appointment System

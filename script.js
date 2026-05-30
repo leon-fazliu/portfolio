@@ -4,6 +4,7 @@ const year = document.querySelector("#year");
 const navLinks = document.querySelectorAll(".site-nav a");
 const sections = document.querySelectorAll("main section[id]");
 const revealItems = document.querySelectorAll(".reveal");
+const profilePhoto = document.querySelector("#profilePhoto");
 
 const closeMenu = () => {
   if (!toggle || !nav) {
@@ -17,6 +18,12 @@ const closeMenu = () => {
 
 if (year) {
   year.textContent = new Date().getFullYear();
+}
+
+if (profilePhoto) {
+  profilePhoto.addEventListener("error", () => {
+    profilePhoto.classList.add("is-hidden");
+  });
 }
 
 if (toggle && nav) {

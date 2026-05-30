@@ -16,8 +16,8 @@ const profileEmail = document.querySelector("#profileEmail");
 
 let isRegisterMode = false;
 let demoUser = {
-  name: "Leon Fazliu",
-  email: "email@example.com",
+  name: "Alex Morgan",
+  email: "client@example.com",
   password: "123456"
 };
 
@@ -33,13 +33,13 @@ function showMessage(type, text) {
 function toggleMode() {
   isRegisterMode = !isRegisterMode;
   registerOnly.classList.toggle("hidden", !isRegisterMode);
-  formTitle.textContent = isRegisterMode ? "Register" : "Login";
+  formTitle.textContent = isRegisterMode ? "Create client account" : "Sign in to ClientFlow";
   formLead.textContent = isRegisterMode
-    ? "Create a demo account and then log in to the dashboard."
-    : "A visual demo that opens directly in the browser. The PHP/MySQL version is in the same folder.";
-  submitButton.textContent = isRegisterMode ? "Register" : "Login";
-  switchText.textContent = isRegisterMode ? "Already have an account?" : "Do not have an account?";
-  switchMode.textContent = isRegisterMode ? "Login" : "Register";
+    ? "Create a demo client account and then sign in to the portal dashboard."
+    : "A polished authentication and client dashboard prototype. The PHP/MySQL backend version is included in this project folder.";
+  submitButton.textContent = isRegisterMode ? "Create account" : "Sign in";
+  switchText.textContent = isRegisterMode ? "Already have access?" : "Need a new client account?";
+  switchMode.textContent = isRegisterMode ? "Sign in" : "Register";
   errorMessage.classList.add("hidden");
   successMessage.classList.add("hidden");
 }
@@ -78,7 +78,7 @@ authForm.addEventListener("submit", (event) => {
     return;
   }
 
-  showMessage("error", "For the demo use email@example.com and password 123456, or create an account.");
+  showMessage("error", "For the demo use client@example.com and password 123456, or create an account.");
 });
 
 switchMode.addEventListener("click", toggleMode);
