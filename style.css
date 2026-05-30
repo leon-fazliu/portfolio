@@ -898,6 +898,12 @@ pre {
 
   .hero {
     min-height: auto;
+    gap: 30px;
+  }
+
+  .hero-panel,
+  .profile-card {
+    justify-self: stretch;
   }
 
   .skills-grid,
@@ -910,17 +916,36 @@ pre {
 
 @media (max-width: 620px) {
   .site-header {
+    min-height: 66px;
     padding: 0 20px;
   }
 
   .brand-text {
-    display: none;
+    display: inline;
+    font-size: 0.92rem;
   }
 
   .hero,
   .section {
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  .hero {
+    padding-top: 34px;
+    padding-bottom: 42px;
+  }
+
+  .hero-content {
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 11vw, 2.7rem);
+  }
+
+  .hero-text {
+    font-size: 1rem;
   }
 
   .skills-grid,
@@ -959,11 +984,18 @@ pre {
 
   .profile-card {
     grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 14px;
   }
 
   .profile-photo-wrap {
     width: 100%;
-    max-width: 220px;
+    max-width: 190px;
+  }
+
+  .profile-meta span {
+    min-height: 30px;
+    font-size: 0.72rem;
   }
 
   .code-footer,
