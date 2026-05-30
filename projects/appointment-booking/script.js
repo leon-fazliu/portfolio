@@ -12,7 +12,7 @@ const totalAppointments = document.querySelector("#totalAppointments");
 const confirmedAppointments = document.querySelector("#confirmedAppointments");
 const pendingAppointments = document.querySelector("#pendingAppointments");
 
-const storageKey = "medibook-appointments";
+const storageKey = "medibook-appointments-v2";
 
 let currentFilter = "all";
 let appointments = JSON.parse(localStorage.getItem(storageKey)) || [
