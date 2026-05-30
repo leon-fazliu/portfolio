@@ -401,6 +401,11 @@ td {
   .sidebar {
     position: static;
     width: auto;
+    padding: 18px 20px;
+  }
+
+  .sidebar nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dashboard-shell {
@@ -416,6 +421,27 @@ td {
 }
 
 @media (max-width: 580px) {
+  .brand {
+    margin-bottom: 18px;
+  }
+
+  .sidebar nav {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell {
+    padding: 18px 14px;
+  }
+
+  .panel,
+  .metrics-grid article {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 12vw, 2.6rem);
+  }
+
   .metrics-grid,
   .product-grid {
     grid-template-columns: 1fr;
@@ -426,5 +452,68 @@ td {
   input,
   select {
     width: 100%;
+  }
+
+  .chart {
+    min-height: 190px;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    min-width: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    padding: 12px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  tr + tr {
+    margin-top: 10px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 0;
+    white-space: normal;
+  }
+
+  td::before {
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  td:nth-child(1)::before {
+    content: "Order";
+  }
+
+  td:nth-child(2)::before {
+    content: "Customer";
+  }
+
+  td:nth-child(3)::before {
+    content: "Status";
+  }
+
+  td:nth-child(4)::before {
+    content: "Total";
   }
 }

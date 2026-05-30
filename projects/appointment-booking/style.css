@@ -415,12 +415,24 @@ select:focus {
   .site-header,
   .site-header nav {
     align-items: flex-start;
-    flex-direction: column;
   }
 
   .site-header {
+    position: static;
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+
+  .site-header nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .site-header nav a {
+    padding: 8px 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
   }
 
   .hero,
@@ -436,10 +448,49 @@ select:focus {
 }
 
 @media (max-width: 560px) {
+  .site-header {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+  }
+
+  .site-header nav {
+    width: 100%;
+  }
+
+  .site-header nav a {
+    flex: 1 1 calc(50% - 10px);
+    text-align: center;
+  }
+
   .hero,
   .section {
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  .hero {
+    padding-top: 38px;
+    padding-bottom: 44px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+  }
+
+  .hero-actions .button,
+  .booking-form button,
+  .filter-btn {
+    width: 100%;
+  }
+
+  .schedule-panel,
+  .booking-form,
+  .hero-card {
+    padding: 18px;
   }
 
   .form-grid,

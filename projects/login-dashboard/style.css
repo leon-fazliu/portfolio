@@ -278,6 +278,16 @@ form button {
 }
 
 @media (max-width: 700px) {
+  .auth-page,
+  .dashboard-page {
+    padding: 20px 14px;
+  }
+
+  .auth-card,
+  .dashboard-panel {
+    padding: 22px;
+  }
+
   .dashboard-top,
   .stats-grid,
   .dashboard-grid {
@@ -290,5 +300,17 @@ form button {
 
   .logout {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(2rem, 12vw, 2.6rem);
+  }
+
+  .stats-grid article,
+  .profile-box,
+  .activity-box {
+    padding: 16px;
   }
 }
