@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockPilot | Inventory Operations Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" aria-label="Primary navigation">
+    <a class="brand" href="../../index.html">
+      <span>SP</span>
+      <strong>StockPilot</strong>
+    </a>
+
+    <nav>
+      <a class="nav-link is-active" href="#overview" data-view="overview">Overview</a>
+      <a class="nav-link" href="#inventory" data-view="inventory">Inventory</a>
+      <a class="nav-link" href="#orders" data-view="orders">Orders</a>
+      <a class="nav-link" href="#suppliers" data-view="suppliers">Suppliers</a>
+      <a class="nav-link" href="#activity" data-view="activity">Activity</a>
+    </nav>
+
+    <div class="sidebar-card">
+      <span>Warehouse health</span>
+      <strong id="warehouseHealth">0%</strong>
+      <div class="health-track"><span id="warehouseHealthBar"></span></div>
+      <small>Based on stock coverage and pending replenishment.</small>
+    </div>
+
+    <a class="portfolio-link" href="../../index.html">Back to portfolio</a>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Inventory Operations</p>
+        <h1>Warehouse control center for modern commerce teams</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="ghost-btn" type="button" id="exportButton">Export report</button>
+        <button class="primary-btn" type="button" id="openProductForm">New product</button>
+      </div>
+    </header>
+
+    <section class="view is-visible" id="overview" data-panel="overview">
+      <section class="metrics" aria-label="Business metrics">
+        <article>
+          <span>Total SKUs</span>
+          <strong id="totalProducts">0</strong>
+          <small id="activeProductsLabel">Active products</small>
+        </article>
+        <article>
+          <span>Stock value</span>
+          <strong id="stockValue">$0</strong>
+          <small>Estimated inventory value</small>
+        </article>
+        <article>
+          <span>Low stock</span>
+          <strong id="lowStock">0</strong>
+          <small>Products under reorder point</small>
+        </article>
+        <article>
+          <span>Open orders</span>
+          <strong id="openOrders">0</strong>
+          <small id="urgentOrdersLabel">Urgent fulfillment</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Demand forecast</p>
+              <h2>Weekly order volume</h2>
+            </div>
+            <input id="warehouseSelect" type="hidden" value="all">
+            <div class="custom-picker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All warehouses</span></button>
+              <div class="custom-options">
+                <button type="button" data-value="all" data-label="All warehouses">All warehouses</button>
+                <button type="button" data-value="north" data-label="North Hub">North Hub</button>
+                <button type="button" data-value="central" data-label="Central DC">Central DC</button>
+                <button type="button" data-value="south" data-label="South Hub">South Hub</button>
+              </div>
+            </div>
+          </div>
+          <div class="bar-chart" id="orderChart" aria-label="Weekly order chart"></div>
+        </article>
+
+        <article class="panel alert-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Exceptions</p>
+              <h2>Priority alerts</h2>
+            </div>
+          </div>
+          <div class="alert-list" id="alertList"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view" id="inventory" data-panel="inventory">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Catalog</p>
+            <h2>Product inventory</h2>
+          </div>
+          <div class="toolbar">
+            <input id="productSearch" type="search" placeholder="Search product, SKU, category">
+            <input id="stockFilter" type="hidden" value="all">
+            <div class="custom-picker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All stock</span></button>
+              <div class="custom-options">
+                <button type="button" data-value="all" data-label="All stock">All stock</button>
+                <button type="button" data-value="low" data-label="Low stock">Low stock</button>
+                <button type="button" data-value="healthy" data-label="Healthy stock">Healthy stock</button>
+                <button type="button" data-value="critical" data-label="Critical">Critical</button>
+              </div>
+            </div>
+            <input id="categoryFilter" type="hidden" value="all">
+            <div class="custom-picker" id="categoryPicker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All categories</span></button>
+              <div class="custom-options" id="categoryOptions">
+                <button type="button" data-value="all" data-label="All categories">All categories</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Warehouse</th>
+                <th>Stock</th>
+                <th>Reorder point</th>
+                <th>Value</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="productsTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="view" id="orders" data-panel="orders">
+      <section class="workspace">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Fulfillment</p>
+              <h2>Sales order queue</h2>
+            </div>
+            <input id="orderFilter" type="hidden" value="all">
+            <div class="custom-picker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All orders</span></button>
+              <div class="custom-options">
+                <button type="button" data-value="all" data-label="All orders">All orders</button>
+                <button type="button" data-value="Ready to ship" data-label="Ready to ship">Ready to ship</button>
+                <button type="button" data-value="Picking" data-label="Picking">Picking</button>
+                <button type="button" data-value="Backordered" data-label="Backordered">Backordered</button>
+              </div>
+            </div>
+          </div>
+          <div class="order-list" id="orderList"></div>
+        </article>
+
+        <article class="panel purchase-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Replenishment</p>
+              <h2>Purchase orders</h2>
+            </div>
+            <button class="ghost-btn compact" type="button" id="createPurchaseOrder">Create PO</button>
+          </div>
+          <div class="purchase-list" id="purchaseList"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view" id="suppliers" data-panel="suppliers">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Procurement</p>
+            <h2>Supplier performance</h2>
+          </div>
+        </div>
+        <div class="supplier-grid" id="supplierGrid"></div>
+      </section>
+    </section>
+
+    <section class="view" id="activity" data-panel="activity">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Audit trail</p>
+            <h2>Inventory movement history</h2>
+          </div>
+        </div>
+        <div class="timeline" id="activityTimeline"></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="product-dialog" id="productDialog">
+    <form method="dialog" class="product-form" id="productForm">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Catalog</p>
+          <h2>Add product</h2>
+        </div>
+        <button class="icon-btn" id="closeProductForm" aria-label="Close form" type="button">×</button>
+      </div>
+
+      <label>
+        Product name
+        <input name="name" required placeholder="Example: POS Terminal Pro">
+      </label>
+      <label>
+        SKU
+        <input name="sku" required placeholder="POS-210">
+      </label>
+      <div class="form-grid">
+        <label>
+          Category
+          <input name="category" required placeholder="Hardware">
+        </label>
+        <label>
+          Warehouse
+          <input name="warehouse" type="hidden" value="North Hub">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false"><span>North Hub</span></button>
+            <div class="custom-options">
+              <button type="button" data-value="North Hub" data-label="North Hub">North Hub</button>
+              <button type="button" data-value="Central DC" data-label="Central DC">Central DC</button>
+              <button type="button" data-value="South Hub" data-label="South Hub">South Hub</button>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>
+          Stock
+          <input name="stock" type="number" min="0" required value="30">
+        </label>
+        <label>
+          Reorder point
+          <input name="reorder" type="number" min="1" required value="15">
+        </label>
+      </div>
+      <label>
+        Unit cost
+        <input name="cost" type="number" min="1" required value="80">
+      </label>
+      <button class="primary-btn" type="submit" value="default">Save product</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EstateFlow | Real Estate Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../index.html"><span>EF</span><strong>EstateFlow</strong></a>
+    <nav aria-label="Main navigation">
+      <a href="#search">Search</a>
+      <a href="#listings">Listings</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-link" href="../../index.html">Portfolio</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="assets/hero-property.png" alt="Modern apartment interior with large windows and city view">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Premium Property Marketplace</p>
+        <h1>Find homes that match your lifestyle, budget and next move.</h1>
+        <p>Browse curated apartments, villas and family homes across global cities with smart filters, saved listings, mortgage estimates and room galleries.</p>
+      </div>
+      <form class="search-card" id="search">
+        <label>
+          Location
+          <input id="locationSearch" type="hidden" value="">
+          <div class="location-picker">
+            <button class="location-toggle" id="locationToggle" type="button" aria-expanded="false">
+              <span id="locationLabel">All locations</span>
+            </button>
+            <div class="location-options" id="locationOptions">
+              <button type="button" data-location="" data-label="All locations">All locations</button>
+              <button type="button" data-location="Dubai" data-label="Dubai, UAE">Dubai, UAE</button>
+              <button type="button" data-location="London" data-label="London, United Kingdom">London, United Kingdom</button>
+              <button type="button" data-location="Paris" data-label="Paris, France">Paris, France</button>
+              <button type="button" data-location="New York" data-label="New York, USA">New York, USA</button>
+              <button type="button" data-location="Barcelona" data-label="Barcelona, Spain">Barcelona, Spain</button>
+              <button type="button" data-location="Miami" data-label="Miami, USA">Miami, USA</button>
+              <button type="button" data-location="Singapore" data-label="Singapore">Singapore</button>
+              <button type="button" data-location="Amsterdam" data-label="Amsterdam, Netherlands">Amsterdam, Netherlands</button>
+              <button type="button" data-location="Tokyo" data-label="Tokyo, Japan">Tokyo, Japan</button>
+              <button type="button" data-location="Zurich" data-label="Zurich, Switzerland">Zurich, Switzerland</button>
+            </div>
+          </div>
+        </label>
+        <label>
+          Property type
+          <input id="typeFilter" type="hidden" value="all">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false">
+              <span>All types</span>
+            </button>
+            <div class="custom-options">
+              <button type="button" data-value="all" data-label="All types">All types</button>
+              <button type="button" data-value="Apartment" data-label="Apartment">Apartment</button>
+              <button type="button" data-value="House" data-label="House">House</button>
+              <button type="button" data-value="Villa" data-label="Villa">Villa</button>
+              <button type="button" data-value="Penthouse" data-label="Penthouse">Penthouse</button>
+            </div>
+          </div>
+        </label>
+        <label>
+          Max price
+          <input id="priceFilter" type="hidden" value="all">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false">
+              <span>Any price</span>
+            </button>
+            <div class="custom-options">
+              <button type="button" data-value="all" data-label="Any price">Any price</button>
+              <button type="button" data-value="350000" data-label="Up to $350K">Up to $350K</button>
+              <button type="button" data-value="550000" data-label="Up to $550K">Up to $550K</button>
+              <button type="button" data-value="850000" data-label="Up to $850K">Up to $850K</button>
+              <button type="button" data-value="1200000" data-label="Up to $1.2M">Up to $1.2M</button>
+              <button type="button" data-value="2000000" data-label="Up to $2M">Up to $2M</button>
+            </div>
+          </div>
+        </label>
+        <label>
+          Bedrooms
+          <input id="bedFilter" type="hidden" value="all">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false">
+              <span>Any</span>
+            </button>
+            <div class="custom-options">
+              <button type="button" data-value="all" data-label="Any">Any</button>
+              <button type="button" data-value="2" data-label="2+">2+</button>
+              <button type="button" data-value="3" data-label="3+">3+</button>
+              <button type="button" data-value="4" data-label="4+">4+</button>
+            </div>
+          </div>
+        </label>
+      </form>
+    </section>
+
+    <section class="stats-band" aria-label="Marketplace stats">
+      <article><span>Active listings</span><strong id="listingCount">0</strong></article>
+      <article><span>Average price</span><strong id="averagePrice">$0</strong></article>
+      <article><span>Saved homes</span><strong id="savedCount">0</strong></article>
+      <article><span>Featured cities</span><strong>10</strong></article>
+    </section>
+
+    <section class="section listings-section" id="listings">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Live Listings</p>
+          <h2>Curated properties for serious buyers</h2>
+        </div>
+        <div class="view-actions">
+          <button class="view-btn is-active" type="button" data-sort="featured">Featured</button>
+          <button class="view-btn" type="button" data-sort="price-low">Price low</button>
+          <button class="view-btn" type="button" data-sort="price-high">Price high</button>
+        </div>
+      </div>
+      <div class="market-layout">
+        <div class="property-grid" id="propertyGrid"></div>
+
+        <aside class="detail-panel" id="detailPanel">
+          <p class="eyebrow">Selected Property</p>
+          <h2 id="detailTitle">Select a property</h2>
+          <p id="detailAddress">Property details will appear here.</p>
+          <div class="detail-metrics">
+            <span><strong id="detailPrice">$0</strong><small>Price</small></span>
+            <span><strong id="detailBeds">0</strong><small>Beds</small></span>
+            <span><strong id="detailArea">0</strong><small>Sq ft</small></span>
+          </div>
+          <div class="map-card">
+            <div class="map-pin"></div>
+            <span id="detailZone">Neighborhood score</span>
+          </div>
+          <ul id="detailFeatures"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section tools-grid">
+      <article class="calculator panel" id="calculator">
+        <p class="eyebrow">Mortgage Planner</p>
+        <h2>Estimate monthly payment</h2>
+        <div class="calc-grid">
+          <label>Home price<input id="homePrice" type="number" value="520000" min="50000"></label>
+          <label>Down payment<input id="downPayment" type="number" value="80000" min="0"></label>
+          <label>Interest rate<input id="interestRate" type="number" value="5.8" min="1" step="0.1"></label>
+          <label>Years<input id="loanYears" type="number" value="30" min="5"></label>
+        </div>
+        <div class="payment-result">
+          <span>Estimated monthly payment</span>
+          <strong id="monthlyPayment">$0</strong>
+        </div>
+      </article>
+
+      <article class="saved panel">
+        <p class="eyebrow">Saved Homes</p>
+        <h2>Buyer shortlist</h2>
+        <div class="saved-list" id="savedList"></div>
+      </article>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div>
+        <p class="eyebrow">Agent Contact</p>
+        <h2>Schedule a private viewing</h2>
+        <p>Send a viewing request for the selected property. The form gives immediate feedback and keeps the experience inside the marketplace flow.</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input id="buyerName" required placeholder="Full name">
+        <input id="buyerEmail" type="email" required placeholder="Email address">
+        <input id="tourTime" type="hidden" value="Today afternoon">
+        <div class="custom-picker">
+          <button class="custom-toggle" type="button" aria-expanded="false">
+            <span>Today afternoon</span>
+          </button>
+          <div class="custom-options">
+            <button type="button" data-value="Today afternoon" data-label="Today afternoon">Today afternoon</button>
+            <button type="button" data-value="Tomorrow morning" data-label="Tomorrow morning">Tomorrow morning</button>
+            <button type="button" data-value="This weekend" data-label="This weekend">This weekend</button>
+          </div>
+        </div>
+        <textarea id="message" rows="4" placeholder="Tell the agent what you are looking for"></textarea>
+        <button class="primary-btn" type="submit">Request viewing</button>
+      </form>
+    </section>
+  </main>
+
+  <dialog class="property-dialog" id="propertyDialog">
+    <div class="dialog-shell">
+      <button class="close-dialog" id="closeDialog" type="button" aria-label="Close property gallery">×</button>
+      <section class="gallery-panel">
+        <div class="gallery-main" id="galleryMain"></div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </section>
+      <aside class="booking-panel">
+        <p class="eyebrow">Property Overview</p>
+        <h2 id="modalTitle">Property</h2>
+        <p id="modalAddress">Address</p>
+        <div class="modal-price" id="modalPrice">$0</div>
+        <div class="room-list" id="roomList"></div>
+        <div class="amenity-list" id="amenityList"></div>
+        <button class="primary-btn" id="modalViewing" type="button">Request private viewing</button>
+      </aside>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

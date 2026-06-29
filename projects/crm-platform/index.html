@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClientHub CRM | Revenue Operations Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="../../index.html"><span>CH</span><strong>ClientHub</strong></a>
+    <nav aria-label="CRM sections">
+      <a class="nav-link is-active" href="#overview" data-view="overview">Overview</a>
+      <a class="nav-link" href="#pipeline" data-view="pipeline">Pipeline</a>
+      <a class="nav-link" href="#clients" data-view="clients">Clients</a>
+      <a class="nav-link" href="#tasks" data-view="tasks">Tasks</a>
+      <a class="nav-link" href="#reports" data-view="reports">Reports</a>
+    </nav>
+    <section class="quota-card">
+      <span>Monthly target</span>
+      <strong id="quotaPercent">0%</strong>
+      <div class="progress"><span id="quotaBar"></span></div>
+      <small id="quotaLabel">$0 closed from $120K goal</small>
+    </section>
+    <a class="portfolio-link" href="../../index.html">Back to portfolio</a>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Revenue Operations</p>
+        <h1>CRM command center for sales pipelines, accounts and follow-ups</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="ghost-btn" type="button" id="exportReport">Export forecast</button>
+        <button class="primary-btn" type="button" id="openDealForm">New deal</button>
+      </div>
+    </header>
+
+    <section class="view is-visible" id="overview" data-panel="overview">
+      <section class="metrics">
+        <article><span>Total pipeline</span><strong id="pipelineValue">$0</strong><small>Weighted revenue forecast</small></article>
+        <article><span>Active accounts</span><strong id="clientCount">0</strong><small id="clientSegmentLabel">0 enterprise accounts</small></article>
+        <article><span>Win rate</span><strong id="winRate">0%</strong><small>Based on closed deals</small></article>
+        <article><span>Due today</span><strong id="dueToday">0</strong><small>Follow-ups and meetings</small></article>
+      </section>
+
+      <section class="overview-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Forecast</p>
+              <h2>Revenue by stage</h2>
+            </div>
+            <input id="forecastFilter" type="hidden" value="all">
+            <div class="custom-picker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All segments</span></button>
+              <div class="custom-options">
+                <button type="button" data-value="all" data-label="All segments">All segments</button>
+                <button type="button" data-value="Enterprise" data-label="Enterprise">Enterprise</button>
+                <button type="button" data-value="SMB" data-label="SMB">SMB</button>
+                <button type="button" data-value="Startup" data-label="Startup">Startup</button>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-chart" id="forecastChart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Focus</p>
+              <h2>Priority opportunities</h2>
+            </div>
+          </div>
+          <div class="priority-list" id="priorityList"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view" id="pipeline" data-panel="pipeline">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Deals</p>
+            <h2>Pipeline board</h2>
+          </div>
+          <div class="toolbar">
+            <input id="dealSearch" type="search" placeholder="Search company, owner, tag">
+            <input id="stageFilter" type="hidden" value="all">
+            <div class="custom-picker">
+              <button class="custom-toggle" type="button" aria-expanded="false"><span>All stages</span></button>
+              <div class="custom-options">
+                <button type="button" data-value="all" data-label="All stages">All stages</button>
+                <button type="button" data-value="Lead" data-label="Lead">Lead</button>
+                <button type="button" data-value="Discovery" data-label="Discovery">Discovery</button>
+                <button type="button" data-value="Proposal" data-label="Proposal">Proposal</button>
+                <button type="button" data-value="Negotiation" data-label="Negotiation">Negotiation</button>
+                <button type="button" data-value="Won" data-label="Won">Won</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kanban" id="pipelineBoard"></div>
+      </section>
+    </section>
+
+    <section class="view" id="clients" data-panel="clients">
+      <section class="client-layout">
+        <aside class="panel">
+          <div class="panel-head stacked">
+            <div>
+              <p class="eyebrow">Accounts</p>
+              <h2>Client directory</h2>
+            </div>
+            <input id="clientSearch" type="search" placeholder="Search clients">
+          </div>
+          <div class="client-list" id="clientList"></div>
+        </aside>
+
+        <article class="panel profile-panel">
+          <div class="profile-top">
+            <div>
+              <p class="eyebrow">Account profile</p>
+              <h2 id="profileName">Client</h2>
+              <p id="profileMeta">Company details</p>
+            </div>
+            <span id="profileStatus" class="badge info">Stage</span>
+          </div>
+          <div class="profile-grid">
+            <article><span>Deal value</span><strong id="profileValue">$0</strong></article>
+            <article><span>Owner</span><strong id="profileOwner">Owner</strong></article>
+            <article><span>Health</span><strong id="profileHealth">0%</strong></article>
+          </div>
+          <div class="panel-head compact">
+            <div>
+              <p class="eyebrow">Activity</p>
+              <h3>Recent notes</h3>
+            </div>
+          </div>
+          <ul class="notes-list" id="activityList"></ul>
+        </article>
+      </section>
+    </section>
+
+    <section class="view" id="tasks" data-panel="tasks">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Execution</p>
+            <h2>Follow-up workspace</h2>
+          </div>
+          <input id="taskFilter" type="hidden" value="all">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false"><span>All tasks</span></button>
+            <div class="custom-options">
+              <button type="button" data-value="all" data-label="All tasks">All tasks</button>
+              <button type="button" data-value="Today" data-label="Today">Today</button>
+              <button type="button" data-value="Tomorrow" data-label="Tomorrow">Tomorrow</button>
+              <button type="button" data-value="This week" data-label="This week">This week</button>
+            </div>
+          </div>
+        </div>
+        <div class="task-grid" id="taskGrid"></div>
+      </section>
+    </section>
+
+    <section class="view" id="reports" data-panel="reports">
+      <section class="report-grid">
+        <article class="panel">
+          <p class="eyebrow">Performance</p>
+          <h2>Sales team scorecard</h2>
+          <div class="score-list" id="scoreList"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Retention</p>
+          <h2>Account health summary</h2>
+          <div class="health-list" id="healthList"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="deal-dialog" id="dealDialog">
+    <form class="deal-form" id="dealForm">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Pipeline</p>
+          <h2>Create deal</h2>
+        </div>
+        <button class="icon-btn" id="closeDealForm" type="button" aria-label="Close form">×</button>
+      </div>
+      <label>Company<input name="company" required placeholder="Example: Apex Retail Group"></label>
+      <label>Contact<input name="contact" required placeholder="Example: Sarah Mitchell"></label>
+      <div class="form-grid">
+        <label>Segment
+          <input name="segment" type="hidden" value="Enterprise">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false"><span>Enterprise</span></button>
+            <div class="custom-options">
+              <button type="button" data-value="Enterprise" data-label="Enterprise">Enterprise</button>
+              <button type="button" data-value="SMB" data-label="SMB">SMB</button>
+              <button type="button" data-value="Startup" data-label="Startup">Startup</button>
+            </div>
+          </div>
+        </label>
+        <label>Stage
+          <input name="stage" type="hidden" value="Lead">
+          <div class="custom-picker">
+            <button class="custom-toggle" type="button" aria-expanded="false"><span>Lead</span></button>
+            <div class="custom-options">
+              <button type="button" data-value="Lead" data-label="Lead">Lead</button>
+              <button type="button" data-value="Discovery" data-label="Discovery">Discovery</button>
+              <button type="button" data-value="Proposal" data-label="Proposal">Proposal</button>
+              <button type="button" data-value="Negotiation" data-label="Negotiation">Negotiation</button>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="form-grid">
+        <label>Deal value<input name="value" type="number" min="1000" value="12000" required></label>
+        <label>Probability<input name="probability" type="number" min="5" max="95" value="35" required></label>
+      </div>
+      <button class="primary-btn" type="submit">Save deal</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
